@@ -1,3 +1,5 @@
+// This source code is imported from the online course. Due to commit issues, the original main.cpp was lost.
+
 // Section 20
 // Class  templates
 #include <iostream>
