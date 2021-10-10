@@ -33,7 +33,7 @@ void Test1() {
 void Test2() {
 	std::vector<int> nums1{ 1,2,3,4,5 };
 	std::vector<int>::iterator it = nums1.begin();
-	
+
 	while (it != nums1.end()) {
 		std::cout << *it << std::endl;
 		it++;
@@ -104,11 +104,11 @@ void Test5() {
 }
 
 int main() {
-	//Test1();
-	//Test2();
-	//Test3();
-	//Test4();
-	//Test5();
+	Test1();
+	Test2();
+	Test3();
+	Test4();
+	Test5();
 
 	return 0;
 }
