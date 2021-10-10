@@ -1,114 +1,67 @@
+// Section 20
+// Function templates
 #include <iostream>
-#include <vector>
-#include <set>
-#include <map>
-#include <list>
+#include <string>
 
-void Display(const std::vector<int>& vec) {
-	std::cout << "[";
-	for (auto const& i : vec) {
-		std::cout << i;
-	}
-	std::cout << "]";
+template <typename T>
+T min(T a, T b) {
+    return (a < b) ? a : b;
 }
 
-void Test1() {
-	std::vector<int> nums1{ 1,2,3,4,5 };
-	auto it = nums1.begin();
-	std::cout << *it << std::endl;	// Point to 1
-
-	it++;
-	std::cout << *it << std::endl;	// Point to 2
-
-	it += 2;
-	std::cout << *it << std::endl;	// Point to 4
-
-	it -= 2;
-	std::cout << *it << std::endl;	// Point to 2
-
-	it = nums1.end() - 1;
-	std::cout << *it << std::endl;	// Point to 5
+template <typename T1, typename T2>
+void func(T1 a, T2 b) {
+    std::cout << a << " " << b << std::endl;
 }
 
-void Test2() {
-	std::vector<int> nums1{ 1,2,3,4,5 };
-	std::vector<int>::iterator it = nums1.begin();
+struct Person {
+    std::string name;
+    int age;
+    bool operator<(const Person& rhs) const {
+        return this->age < rhs.age;
+    }
+};
 
-	while (it != nums1.end()) {
-		std::cout << *it << std::endl;
-		it++;
-	}
-
-	it = nums1.begin();
-	while (it != nums1.end()) {
-		*it = 0;
-		it++;
-	}
-
-	Display(nums1);
+std::ostream& operator<<(std::ostream& os, const Person& p) {
+    os << p.name;
+    return os;
 }
 
-void Test3() {
-	std::vector<int> nums1{ 1,2,3,4,5 };
-	std::vector<int>::const_iterator it1 = nums1.begin();
-	//auto it1 = nums1.cbegin();	// This is the same as the line above
-
-	while (it1 != nums1.end()) {
-		std::cout << *it1 << std::endl;
-		it1++;
-	}
-
-	it1 = nums1.begin();
-	while (it1 != nums1.end()) {
-		//*it1 = 0;	// Error - read only
-		std::cout << *it1 << std::endl;
-		it1++;
-	}
-}
-
-void Test4() {
-	std::vector<int> vec{ 1,2,3,4 };
-	auto it1 = vec.rbegin();
-	while (it1 != vec.rend()) {
-		std::cout << *it1 << std::endl;
-		it1++;
-	}
-
-	std::list<std::string> name{ "Larry", "Moe", "Curly" };
-	auto it2 = name.crbegin();
-	std::cout << *it2 << std::endl;
-	it2++;
-	std::cout << *it2 << std::endl;
-
-	std::map<std::string, std::string> favourites{
-		{"Frank", "C++"},
-		{"Bill", "Java"},
-		{"James", "Haskell"}
-	};
-	auto it3 = favourites.begin();
-	while (it3 != favourites.end()) {
-		std::cout << it3->first << " : " << it3->second << std::endl;
-		it3++;
-	}
-}
-
-void Test5() {
-	std::vector<int> vec{ 1,2,3,4,5,6,7,8,9,10 };
-	auto start = vec.begin() + 2;
-	auto finish = vec.end() - 3;
-
-	while (start != finish) {
-		std::cout << *start << std::endl;
-		start++;
-	}
+template <typename T>
+void my_swap(T& a, T& b) {
+    T temp = a;
+    a = b;
+    b = temp;
 }
 
 int main() {
-	Test1();
-	Test2();
-	Test3();
-	Test4();
-	Test5();
+    int x{ 100 };
+    int y{ 200 };
+    std::cout << x << ", " << y << std::endl;
+    my_swap(x, y);
+    std::cout << x << ", " << y << std::endl;
 
-	return 0;
+    Person p1{ "Curly", 15 };
+    Person p2{ "Moe", 30 };
+
+    Person p3 = min(p1, p2);
+    std::cout << p3.name << " is younger" << std::endl;
+
+    func(p1, p2);
+
+    std::cout << min<int>(2, 3) << std::endl;        // 2
+    std::cout << min(2, 3) << std::endl;                 // 2
+    std::cout << min('A', 'B') << std::endl;            // A
+    std::cout << min(12.5, 9.2) << std::endl;        // 9.2
+    std::cout << min(5 + 2 * 2, 7 + 40) << std::endl; // 9
+
+    func<int, int>(10, 20);
+    func(10, 20);
+    func<char, double>('A', 12.4);
+    func('A', 12.4);
+    func(1000, "Testing");
+    func(2000, std::string{ "Frank" });
+
+
+    return 0;
 }
+
