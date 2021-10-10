@@ -1,48 +1,114 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include <set>
+#include <map>
+#include <list>
 
-template<typename T>
-class Item {
-private:
-	std::string name;
-	T value;
-public:
-	Item(std::string name, T value) : name(name), value(value) { }
-	std::string get_name() const { return name; }
-	T get_value() const { return value; }
-};
+void Display(const std::vector<int>& vec) {
+	std::cout << "[";
+	for (auto const& i : vec) {
+		std::cout << i;
+	}
+	std::cout << "]";
+}
 
-template<typename T1, typename T2>
-struct My_Pair {
-	T1 first;
-	T2 second;
-};
+void Test1() {
+	std::vector<int> nums1{ 1,2,3,4,5 };
+	auto it = nums1.begin();
+	std::cout << *it << std::endl;	// Point to 1
 
-int main() {
-	Item<int> item1{ "Frank", 100 };
-	std::cout << item1.get_name() << " " << item1.get_value() << std::endl;
+	it++;
+	std::cout << *it << std::endl;	// Point to 2
 
-	Item<std::string> item2{ "Frank", "Professor" };
-	std::cout << item2.get_name() << " " << item2.get_value() << std::endl;
+	it += 2;
+	std::cout << *it << std::endl;	// Point to 4
 
-	Item<Item<std::string>> item3{ "Frank", {"C++", "Professor"} };
-	std::cout << item3.get_name() << " " << item3.get_value().get_name() << " " << item3.get_value().get_value() << std::endl;
+	it -= 2;
+	std::cout << *it << std::endl;	// Point to 2
 
-	std::vector<Item<double>> vec{};
-	vec.push_back(Item<double>("Larry", 100.0));
-	vec.push_back(Item<double>("Moe", 200.0));
-	vec.push_back(Item<double>("Curly", 300.0));
+	it = nums1.end() - 1;
+	std::cout << *it << std::endl;	// Point to 5
+}
 
-	for (const auto& item : vec) {
-		std::cout << item.get_name() << " " << item.get_value() << std::endl;
+void Test2() {
+	std::vector<int> nums1{ 1,2,3,4,5 };
+	std::vector<int>::iterator it = nums1.begin();
+	
+	while (it != nums1.end()) {
+		std::cout << *it << std::endl;
+		it++;
 	}
 
-	My_Pair <std::string, int> p1{ "Frank", 100 };
-	My_Pair <int, double> p2{ 124, 13.6 };
+	it = nums1.begin();
+	while (it != nums1.end()) {
+		*it = 0;
+		it++;
+	}
 
-	std::cout << p1.first << " " << p1.second << std::endl;
-	std::cout << p2.first << " " << p2.second << std::endl;
+	Display(nums1);
+}
+
+void Test3() {
+	std::vector<int> nums1{ 1,2,3,4,5 };
+	std::vector<int>::const_iterator it1 = nums1.begin();
+	//auto it1 = nums1.cbegin();	// This is the same as the line above
+
+	while (it1 != nums1.end()) {
+		std::cout << *it1 << std::endl;
+		it1++;
+	}
+
+	it1 = nums1.begin();
+	while (it1 != nums1.end()) {
+		//*it1 = 0;	// Error - read only
+		std::cout << *it1 << std::endl;
+		it1++;
+	}
+}
+
+void Test4() {
+	std::vector<int> vec{ 1,2,3,4 };
+	auto it1 = vec.rbegin();
+	while (it1 != vec.rend()) {
+		std::cout << *it1 << std::endl;
+		it1++;
+	}
+
+	std::list<std::string> name{ "Larry", "Moe", "Curly" };
+	auto it2 = name.crbegin();
+	std::cout << *it2 << std::endl;
+	it2++;
+	std::cout << *it2 << std::endl;
+
+	std::map<std::string, std::string> favourites{
+		{"Frank", "C++"},
+		{"Bill", "Java"},
+		{"James", "Haskell"}
+	};
+	auto it3 = favourites.begin();
+	while (it3 != favourites.end()) {
+		std::cout << it3->first << " : " << it3->second << std::endl;
+		it3++;
+	}
+}
+
+void Test5() {
+	std::vector<int> vec{ 1,2,3,4,5,6,7,8,9,10 };
+	auto start = vec.begin() + 2;
+	auto finish = vec.end() - 3;
+
+	while (start != finish) {
+		std::cout << *start << std::endl;
+		start++;
+	}
+}
+
+int main() {
+	//Test1();
+	//Test2();
+	//Test3();
+	//Test4();
+	//Test5();
 
 	return 0;
 }
