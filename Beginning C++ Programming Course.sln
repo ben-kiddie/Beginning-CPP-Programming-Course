@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Iterators", "Iterators\Iter
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Function Templates", "Function Templates\Function Templates.vcxproj", "{8F5953C5-75E4-4618-B5F3-02D8228263E7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Algorithms", "Algorithms\Algorithms.vcxproj", "{9C3DF117-5EEA-4C4C-8EC1-69CD894D2BCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -105,6 +107,14 @@ Global
 		{8F5953C5-75E4-4618-B5F3-02D8228263E7}.Release|x64.Build.0 = Release|x64
 		{8F5953C5-75E4-4618-B5F3-02D8228263E7}.Release|x86.ActiveCfg = Release|Win32
 		{8F5953C5-75E4-4618-B5F3-02D8228263E7}.Release|x86.Build.0 = Release|Win32
+		{9C3DF117-5EEA-4C4C-8EC1-69CD894D2BCD}.Debug|x64.ActiveCfg = Debug|x64
+		{9C3DF117-5EEA-4C4C-8EC1-69CD894D2BCD}.Debug|x64.Build.0 = Debug|x64
+		{9C3DF117-5EEA-4C4C-8EC1-69CD894D2BCD}.Debug|x86.ActiveCfg = Debug|Win32
+		{9C3DF117-5EEA-4C4C-8EC1-69CD894D2BCD}.Debug|x86.Build.0 = Debug|Win32
+		{9C3DF117-5EEA-4C4C-8EC1-69CD894D2BCD}.Release|x64.ActiveCfg = Release|x64
+		{9C3DF117-5EEA-4C4C-8EC1-69CD894D2BCD}.Release|x64.Build.0 = Release|x64
+		{9C3DF117-5EEA-4C4C-8EC1-69CD894D2BCD}.Release|x86.ActiveCfg = Release|Win32
+		{9C3DF117-5EEA-4C4C-8EC1-69CD894D2BCD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -119,6 +129,7 @@ Global
 		{A6DD5BBC-BF19-4724-AAE5-6213563D96F5} = {3DB11C13-773B-49F7-9423-EB2A13B01109}
 		{0DB30C34-51A4-4332-94D8-89EEBF2CCD10} = {3DB11C13-773B-49F7-9423-EB2A13B01109}
 		{8F5953C5-75E4-4618-B5F3-02D8228263E7} = {3DB11C13-773B-49F7-9423-EB2A13B01109}
+		{9C3DF117-5EEA-4C4C-8EC1-69CD894D2BCD} = {3DB11C13-773B-49F7-9423-EB2A13B01109}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4668A1D8-2FDF-4F9F-BFC4-3DD6F37F4A12}
