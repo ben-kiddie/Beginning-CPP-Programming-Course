@@ -69,6 +69,7 @@ void Test3() {
 void Test4() {
 	std::vector<int> vec{ 1,2,3,4 };
 	auto it1 = vec.rbegin();
+	// std::vector<int>::reverse_iterator it1 = vec.rbegin();	// Also a way to create a reverse iterator
 	while (it1 != vec.rend()) {
 		std::cout << *it1 << std::endl;
 		it1++;
