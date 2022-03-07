@@ -215,7 +215,7 @@ void Display(const std::vector<T>& vec) {
 
 int main() {
 	//Test1();
-	//Test2();
+	Test2();
 	//Test3();
 	//Test4();
 	//Test5();
