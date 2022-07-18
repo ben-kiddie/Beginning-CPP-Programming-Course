@@ -2,8 +2,8 @@
 This is a repository containing C++ projects developed by undertaking lectures from the Udemy course ["Beginning C++ Programming - From Beginner to Beyond"](https://www.udemy.com/course/beginning-c-plus-plus-programming/).
 
 ## What is this repository?
-I decided to undertake this course to fill gaps in my C++ skills from university, and to simply further my abilities beyond what I previously was taught.
-The goal is to showcase topics I have covered practically in this course and have code samples as references.
+I decided to undertake this course to fill gaps in my C++ skills and further my knowledge of the language.
+The goal is to showcase which topics I have covered practically in this course and have code samples which I can reference.
 Using both this repo and my notes taken when covering this course, I can quickly refresh my understanding of these topics.
 
 ## What is included in this repository?
